@@ -1,0 +1,36 @@
+{
+  "name": "gradpro404",
+  "version": "1.0.0",
+  "description": "I hope this project will be the one that succeeds without any 404s",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "ngm",
+  "license": "ISC",
+  "dependencies": {
+    "argon2": "^0.40.1",
+    "axios": "^1.6.8",
+    "body-parser": "^1.20.2",
+    "child_process": "^1.0.2",
+    "chokidar": "^3.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.18.0",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "method-override": "^3.0.0",
+    "mongodb": "^6.6.1",
+    "mongoose": "^8.3.4",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.0",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "python-shell": "^5.0.0",
+    "socket.io": "^4.7.5"
+  }
+}
