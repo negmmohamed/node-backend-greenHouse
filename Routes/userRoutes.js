@@ -105,30 +105,10 @@ userRouter.get('/dashboard/Classification', checkAuthenticated, (req, res) => {
 // });
 
 
-// userRouter.get('/classificationimage', async (req, res) => {
-//   const resultsPath = path.join(__dirname, '../target_images/my_custom_results.json');
-//   const imagePath = path.join(__dirname, '../target_images/detected_image.jpg'); 
-
-//   if (fs.existsSync(resultsPath)) {
-//     const classificationResults = JSON.parse(fs.readFileSync(resultsPath, 'utf8'));
-
-//     if (fs.existsSync(imagePath)) {
-//       const response = {
-//         classificationResults: classificationResults,
-//         imageName: 'detected_image.jpg'
-//       };
-
-//       res.json(response);
-//     } else {
-//       res.status(404).send('Detected image not found');
-//     }
-//   } else {
-//     res.status(404).send('Results not found');
-//   }
-// });
-
 
 userRouter.get('/classificationimage', async (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  
   const resultsPath = path.join(__dirname, '../target_images/my_custom_results.json');
   const imagePath = path.join(__dirname, '../target_images/detected_image.jpg'); 
 
