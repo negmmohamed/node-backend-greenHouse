@@ -3,8 +3,8 @@ const path = require('path');
 const fs = require('fs');
 const { exec } = require('child_process');
 
-module.exports=function watchTargetImagesFolder() {
-    const folderPath = path.join(__dirname, '../target_images');
+module.exports = function watchTargetImagesFolder() {
+    const folderPath = path.join(__dirname, '../public/target_images');
     const scriptPath = path.join(__dirname, '../Inference/app/main.py');
 
     const watcher = chokidar.watch(folderPath, {
@@ -12,7 +12,7 @@ module.exports=function watchTargetImagesFolder() {
         persistent: true 
     });
 
-    console.log(`Watching ${folderPath} for changes...(▀̿Ĺ̯▀̿ ̿)`);
+    console.log(`Watching ${folderPath} for changes...`);
 
     watcher.on('add', (filePath) => {
         console.log(`New file added: ${filePath}`);
@@ -32,9 +32,9 @@ module.exports=function watchTargetImagesFolder() {
                 console.error(`Python script stderr: ${stderr}`);
                 return;
             }
-    
+
             console.log('Python script output:', stdout);
-    
+
             try {
                 const classificationResults = JSON.parse(stdout);
                 saveClassifiedResults(imagePath, classificationResults);
@@ -43,7 +43,7 @@ module.exports=function watchTargetImagesFolder() {
             }
         });
     }
-    
+
     function saveClassifiedResults(imagePath, classificationResults) {
         const imageName = path.basename(imagePath, path.extname(imagePath));
         const resultFilePath = path.join(folderPath, `${imageName}_results.json`);
@@ -56,4 +56,3 @@ module.exports=function watchTargetImagesFolder() {
         console.log(`Classified image saved: ${classifiedImagePath}`);
     }
 };
-
